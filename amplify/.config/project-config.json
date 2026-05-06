@@ -2,16 +2,16 @@
   "providers": [
     "awscloudformation"
   ],
-  "projectName": "stibaquiraelabs2025r",
+  "projectName": "morrisElabs2026",
   "version": "3.1",
   "frontend": "javascript",
   "javascript": {
     "framework": "react",
     "config": {
-      "SourceDir": ".",
-      "DistributionDir": ".next",
-      "BuildCommand": "npm run build",
-      "StartCommand": "npm run start"
+      "SourceDir": "src",
+      "DistributionDir": "build",
+      "BuildCommand": ".nextsrc",
+      "StartCommand": "npm run dev"
     }
   }
 }
