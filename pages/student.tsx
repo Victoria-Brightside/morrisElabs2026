@@ -115,9 +115,15 @@ const LABS_DE_DEVOPS = [
   { name: 'Lab ECS',  md: '/labs/devops/ecs.md', audio: '/labs/devops/lab2.wav', image: '/labs/devops/thumbnails/ecs.png' },
 ];
 
+const LABS_DE_AI_ENGINEER = [
+  { name: 'Lab Bedrock',   md: '/labs/aiengineer/bedrock.md', audio: '/labs/aiengineer/lab1.mp3', image: '/labs/aiengineer/thumbnails/bedrock.png' },
+  { name: 'Lab SageMaker', md: '/labs/aiengineer/sagemaker.md', audio: '/labs/aiengineer/lab2.mp3', image: '/labs/aiengineer/thumbnails/sagemaker.png' },
+];
+
 const LAB_PROFILES = [
   { key: 'dataengineer', label: 'Data Engineer', image: '/labs/dataengineer/profile.png', labs: LABS_DE_DATA_ENGINEER },
   { key: 'devops', label: 'DevOps Engineer', image: '/labs/devops/profile.png', labs: LABS_DE_DEVOPS },
+  { key: 'aiengineer',  label: 'AI Engineer',     image: '/labs/aiengineer/profile.png',   labs: LABS_DE_AI_ENGINEER },
 ];
 
 // 🔗 Mapeo Lab → OU
@@ -133,6 +139,10 @@ const labToOU: Record<string, string> = {
   // Mapeo para los labs de DevOps ---
   '/labs/devops/eks.md': 'Workshop EKS DOP',
   '/labs/devops/lab2.md': 'Workshop ECS DOP',
+
+  //Mapeo para los labs de AI
+  '/labs/aiengineer/bedrock.md': 'Workshop Asistente Serverless Bedrock AI', 
+  '/labs/aiengineer/sagemaker.md': 'Workshop SageMaker AI',
 };
 
 const TOUR_STEPS = [
