@@ -1,0 +1,94 @@
+/* =============================================
+   labs.css
+   Wizard de laboratorios, tablas del markdown,
+   bloques de código con botón de copiar
+   ============================================= */
+
+   /* Wizard-labs container responsivo */
+.wizard-labs {
+  width: 100%;
+  max-width: 1600px;
+  margin: 0 auto 2rem auto;
+  padding: 1rem 2vw;
+  box-sizing: border-box;
+}
+
+/* === Tablas del Markdown (labs) === */
+.section-container table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1.2em 0;
+}
+
+.section-container table th,
+.section-container table td {
+  padding: 12px 24px;
+  border: 1px solid var(--border-color);
+  text-align: left;
+}
+
+.section-container table th {
+  background: rgba(0, 25, 105, 0.06);
+  font-weight: 700;
+  color: var(--primary-color);
+}
+
+[data-theme="dark"] .section-container table th {
+  background: rgba(255, 255, 255, 0.05);
+}
+
+/* === Estilos para Bloques de Código con Botón de Copiar === */
+.code-block-wrapper {
+  position: relative;
+  margin-bottom: 1.5em;
+}
+
+.copy-code-button {
+  position: absolute;
+  top: -5px;
+  right: 2px;
+  width: 36px;
+  height: 36px;
+  display: grid;
+  place-items: center;
+  background-color: rgba(0,0,0,0.1);
+  color: var(--text-color);
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  cursor: pointer;
+  opacity: 0.7;
+  transition: all 0.2s ease-in-out;
+}
+
+.code-block-wrapper:hover .copy-code-button {
+  opacity: 1;
+  background-color: rgba(0,0,0,0.2);
+}
+
+.copy-code-button:hover {
+  border-color: var(--chat-header-gradient);
+}
+
+.copy-code-button.copied {
+  background-color: #28a745;
+  border-color: #28a745;
+  color: #fff;
+  opacity: 1;
+  transform: scale(1.05);
+}
+
+.copy-code-button svg {
+  width: 16px;
+  height: 16px;
+}
+
+.markdown-content pre {
+  padding-top: 40px !important;
+}
+
+@media (max-width: 768px) {
+  .wizard-labs {
+    padding: 1rem 2vw;
+    max-width: 100vw;
+  }
+}

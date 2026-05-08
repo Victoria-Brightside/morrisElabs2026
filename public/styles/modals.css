@@ -1,0 +1,205 @@
+/* =============================================
+   modals.css
+   Anuncios (lista + modal), confirmación de
+   acceso al lab, lightbox de imágenes, PDF viewer
+   ============================================= */
+
+   /* Lista de anuncios */
+.anuncios-container {
+  width: 100%;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.anuncios-list {
+  list-style: none;
+  padding: 0;
+  margin: 1.5rem 0;
+}
+
+.anuncio-item {
+  background: var(--chat-bg-gradient);
+  border-left: 4px solid var(--secondary-color);
+  padding: 1.2rem;
+  margin-bottom: 1rem;
+  border-radius: var(--border-radius);
+  box-shadow: 0 2px 4px var(--shadow-color);
+  transition: var(--transition);
+}
+
+.anuncio-item:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 4px 8px var(--shadow-color);
+}
+
+.anuncio-content {
+  font-size: 1rem;
+  margin-bottom: 0.5rem;
+  color: var(--text-color);
+}
+
+.anuncio-date {
+  font-size: 0.85rem;
+  color: var(--text-color);
+  opacity: 0.8;
+  text-align: right;
+}
+
+/* Modal de anuncio */
+.announcement-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  animation: fadeIn 0.3s ease-out;
+}
+
+.announcement-modal {
+  background: var(--card-gradient);
+  padding: 2rem;
+  border-radius: var(--border-radius);
+  max-width: 600px;
+  width: 90%;
+  box-shadow: 0 4px 20px var(--shadow-color);
+  position: relative;
+  border: 1px solid var(--border-color);
+}
+
+.announcement-close-button {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+  color: var(--text-color);
+  transition: var(--transition);
+}
+
+.announcement-close-button:hover {
+  color: var(--danger-color);
+}
+
+.announcement-content {
+  white-space: pre-line;
+  margin: 1rem 0;
+  line-height: 1.6;
+  color: var(--text-color);
+}
+
+/* === Modal Confirmar Acceso al Laboratorio === */
+.confirm-access-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.55);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1600;
+  animation: fadeIn 0.2s ease-out;
+}
+
+.confirm-access-modal {
+  background: var(--card-gradient);
+  border-radius: var(--border-radius);
+  box-shadow: 0 8px 32px rgba(0,0,0,0.35);
+  padding: 1.6rem 1.4rem 1.4rem;
+  max-width: 540px;
+  width: 92%;
+  position: relative;
+  text-align: center;
+  border: 1px solid var(--border-color);
+}
+
+.confirm-access-modal h2 {
+  margin: 0 0 0.75rem 0;
+  color: var(--primary-color);
+  font-size: 1.25rem;
+  font-weight: 700;
+}
+
+.confirm-access-modal p {
+  margin: 0.5rem 0;
+  color: var(--text-color);
+}
+
+.confirm-close-button {
+  position: absolute;
+  top: 0.65rem;
+  right: 0.75rem;
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+  color: var(--text-color);
+  padding: 0.25rem;
+}
+
+.confirm-close-button:hover {
+  color: var(--danger-color);
+}
+
+/* 🔍 Lightbox para imágenes del markdown */
+.image-lightbox-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.85);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2vw;
+  z-index: 1500;
+  cursor: zoom-out;
+  animation: fadeIn 0.2s ease-out;
+}
+
+.image-lightbox-img {
+  max-width: 95vw;
+  max-height: 90vh;
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.35);
+  user-select: none;
+  -webkit-user-drag: none;
+}
+
+/* PDF Viewer */
+.pdf-viewer-container {
+  width: 100%;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.pdf-actions {
+  margin: 1.5rem 0;
+  text-align: center;
+}
+
+.external-link-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.8rem 1.5rem;
+  background-color: var(--accent-color);
+  color: white;
+  text-decoration: none;
+  border-radius: var(--border-radius);
+  transition: var(--transition);
+}
+
+.external-link-button:hover {
+  background-color: #218838;
+  transform: translateY(-2px);
+}
+
+@media (max-width: 480px) {
+  .anuncio-item {
+    padding: 1rem;
+  }
+}

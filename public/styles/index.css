@@ -1,0 +1,11 @@
+/* public/styles/index.css */
+@import './globals.css';
+@import './layout.css';
+@import './buttons.css';
+@import './forms.css';
+@import './cards.css';
+@import './modals.css';
+@import './chat.css';
+@import './labs.css';
+@import './tour.css';
+@import './news.css';

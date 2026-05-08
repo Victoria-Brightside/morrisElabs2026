@@ -1,0 +1,128 @@
+/* =============================================
+   tour.css
+   Tutorial guiado: overlay, tooltip con flecha,
+   posicionamiento dinámico y checkbox final
+   ============================================= */
+
+   /* --- Estilos para el Tutorial Guiado --- */
+.tour-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.4);
+  z-index: 1999;
+}
+
+.tour-tooltip {
+  background: var(--card-gradient);
+  color: var(--text-color);
+  border: 1px solid var(--border-color);
+  border-radius: 12px;
+  padding: 16px 20px;
+  box-shadow: 0 4px 12px var(--shadow-color);
+  max-width: 300px;
+  min-width: 250px;
+  transition: all 0.3s ease-in-out;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+.tour-tooltip::before {
+  content: '';
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  border-width: 8px;
+  border-style: solid;
+  border-color: transparent transparent var(--card-bg) transparent;
+}
+
+.tour-tooltip[data-placement="bottom"]::before {
+  bottom: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  border-color: transparent transparent var(--card-bg) transparent;
+}
+
+.tour-tooltip[data-placement="top"]::before {
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  border-color: var(--card-bg) transparent transparent transparent;
+}
+
+.tour-tooltip h4 {
+  margin-top: 0;
+  margin-bottom: 8px;
+  color: var(--primary-color);
+  font-size: 1.1rem;
+}
+
+.tour-tooltip p {
+  margin-bottom: 16px;
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+
+.tour-actions {
+  text-align: right;
+  margin-top: 10px;
+}
+
+.tour-button {
+  background: var(--primary-color);
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  padding: 8px 16px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.tour-button:hover {
+  background: var(--secondary-color);
+}
+
+.tour-checkbox-wrapper {
+  display: flex;
+  align-items: center;
+  margin-top: 16px;
+  border-top: 1px solid var(--border-color);
+  padding-top: 12px;
+}
+
+.tour-checkbox-wrapper input[type="checkbox"] {
+  margin-right: 8px;
+  accent-color: var(--primary-color);
+}
+
+.tour-checkbox-wrapper label {
+  font-size: 0.9rem;
+  color: var(--text-color);
+  cursor: pointer;
+}
+
+/* Transformación horizontal */
+.tour-tooltip[data-align="center"] {
+  transform: translateX(-50%);
+}
+.tour-tooltip[data-placement="top"][data-align="center"] {
+  transform: translate(-50%, -100%);
+}
+
+.tour-tooltip[data-align="right"] {
+  transform: translateX(-100%);
+}
+.tour-tooltip[data-placement="top"][data-align="right"] {
+  transform: translate(-100%, -100%);
+}
+
+.tour-tooltip[data-align="right"]::before {
+  left: auto;
+  right: 20px;
+  transform: none;
+}

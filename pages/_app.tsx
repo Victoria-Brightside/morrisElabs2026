@@ -9,7 +9,7 @@ import { useEffect, useMemo, useState } from 'react';
 import { useRouter } from 'next/router';
 
 // 👇 Importo tu CSS global para que el loader herede variables/estilos
-import '../public/styles/admin.css';
+import '../public/styles/index.css';
 
 // Mezcla aws-exports con env vars para AppSync y normaliza el endpoint
 const rawEndpoint =

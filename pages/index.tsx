@@ -1,7 +1,7 @@
 'use client';
 import React, { useEffect, useState } from 'react';
 import { signIn, signOut, fetchAuthSession } from 'aws-amplify/auth';
-import '../public/styles/admin.css';
+import '../public/styles/index.css';
 import ThemeToggle from '../src/app/context/ThemeToggle';
 import { useRouter } from 'next/router';
 

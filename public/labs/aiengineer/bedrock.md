@@ -4,17 +4,18 @@ En este laboratorio se te proporcionará un entorno en el cual tu objetivo es co
 
 ![Arquitectura del laboratorio](https://raw.githubusercontent.com/Victoria-Brightside/img-labs-morris/refs/heads/main/aiengineer/bedrockarch.png)
 
----
+
 
 ## 📋 Índice
 
-1. [Fase 1 — Amazon S3](#fase-1--amazon-s3)
-2. [Fase 2 — Bedrock: Knowledge Base](#fase-2--bedrock-knowledge-base-con-s3-vectors)
-3. [Fase 3 — Bedrock: Guardrail](#fase-3--bedrock-guardrail)
-4. [Fase 4 — AWS Lambda](#fase-4--aws-lambda)
-5. [Fase 5 — Amazon API Gateway](#fase-5--amazon-api-gateway)
+1. [Fase 1 - Amazon S3](#fase-1-amazon-s3)
+2. [Fase 2 - Bedrock: Knowledge Base](#fase-2-bedrock-knowledge-base-con-s3-vectors)
+3. [Fase 3 - Bedrock: Guardrail](#fase-3-bedrock-guardrail)
+4. [Fase 4 - AWS Lambda](#fase-4-aws-lambda)
+5. [Fase 5 - Amazon API Gateway](#fase-5-amazon-api-gateway)
 
----
+
+<a id="fase-1-amazon-s3"></a>
 
 ## Fase 1 — Amazon S3
 
@@ -30,7 +31,7 @@ Este bucket almacenará los documentos que la Knowledge Base indexará para resp
 6. Haz clic en **Create bucket**
 7. Abre el bucket → **Upload** → sube el archivo `info_test_RAG.pdf`
 
----
+
 
 ### 1.2 Bucket del frontend
 
@@ -44,7 +45,8 @@ Este bucket almacenará los archivos de la interfaz web. El acceso se realizará
 6. Haz clic en **Create bucket**
 7. Sube los archivos `index.html` e `index.css`
 
----
+
+<a id="fase-2-bedrock-knowledge-base-con-s3-vectors"></a>
 
 ## Fase 2 — Bedrock: Knowledge Base con S3 Vectors
 
@@ -55,14 +57,14 @@ Este bucket almacenará los archivos de la interfaz web. El acceso se realizará
 3. **IAM permissions:** *Create and use a new service role*
 4. Haz clic en **Next**
 
----
+
 
 ### 2.2 Elegir el tipo de Data Source
 
 1. **Data source type:** Amazon S3
 2. Haz clic en **Next**
 
----
+
 
 ### 2.3 Configurar el Data Source
 
@@ -74,7 +76,7 @@ Este bucket almacenará los archivos de la interfaz web. El acceso se realizará
 | Parsing strategy | Amazon Bedrock default parser |
 | Chunking strategy | Default chunking |
 
----
+
 
 ### 2.4 Configurar Data Storage and Processing
 
@@ -89,7 +91,7 @@ Este bucket almacenará los archivos de la interfaz web. El acceso se realizará
 
 > 📝 **Anota el Knowledge Base ID** — tiene el formato `XXXXXXXXXX`
 
----
+
 
 ### 2.5 Sincronizar documentos
 
@@ -97,9 +99,10 @@ Este bucket almacenará los archivos de la interfaz web. El acceso se realizará
 2. Selecciona `knowledge-base` → haz clic en **Sync**
 3. Espera hasta que el estado diga **Available**
 
----
 
-## Fase 3 — Bedrock: Guardrail
+<a id="fase-3-bedrock-guardrail"></a>
+
+## Fase 3 - Bedrock: Guardrail
 
 ### 3.1 Crear el Guardrail
 
@@ -110,7 +113,7 @@ Este bucket almacenará los archivos de la interfaz web. El acceso se realizará
 5. Selecciona ✅ *Apply the same blocked message for responses*
 6. Haz clic en **Next**
 
----
+
 
 ### 3.2 Configurar Content Filters
 
@@ -124,7 +127,7 @@ Ve a **Content filters → Configure harmful categories** y aplica la siguiente 
 
 Haz clic en **Next**.
 
----
+
 
 ### 3.3 Denied Topics
 
@@ -144,9 +147,10 @@ Haz clic en **Next**.
 > 📝 **Anota el Guardrail ID** — formato `xxxxxxxxxx`  
 > 📝 **Anota el número de versión** en la columna *Version* (normalmente `1`)
 
----
 
-## Fase 4 — AWS Lambda
+<a id="fase-4-aws-lambda"></a>
+
+## Fase 4 - AWS Lambda
 
 ### 4.1 Crear la función
 
@@ -161,7 +165,7 @@ Haz clic en **Next**.
 
 3. Haz clic en **Create function**
 
----
+
 
 ### 4.2 Pegar el código
 
@@ -169,7 +173,7 @@ Haz clic en **Next**.
 2. Borra todo el contenido y pega el código proporcionado
 3. Haz clic en **Deploy**
 
----
+
 
 ### 4.3 Variables de entorno
 
@@ -183,7 +187,7 @@ Ve a **Configuration → Environment variables → Edit → Add environment vari
 
 Haz clic en **Save**.
 
----
+
 
 ### 4.4 Timeout, memoria y rol de ejecución
 
@@ -197,9 +201,10 @@ Ve a **Configuration → General configuration → Edit** y configura:
 
 Haz clic en **Save**.
 
----
 
-## Fase 5 — Amazon API Gateway
+<a id="fase-5-amazon-api-gateway"></a>
+
+## Fase 5 - Amazon API Gateway
 
 ### 5.1 Crear la API
 
@@ -213,7 +218,7 @@ Haz clic en **Save**.
 
 3. Haz clic en **Create API**
 
----
+
 
 ### 5.2 Crear el recurso `/chat`
 
@@ -227,7 +232,7 @@ Haz clic en **Save**.
 
 2. Haz clic en **Create Resource**
 
----
+
 
 ### 5.3 Crear el método POST
 
@@ -241,7 +246,7 @@ Haz clic en **Save**.
 
 2. Deja el resto por defecto y haz clic en **Create method**
 
----
+
 
 ### 5.4 Habilitar CORS
 
@@ -256,7 +261,7 @@ Con `/chat` seleccionado → haz clic en **Enable CORS** y configura:
 
 Haz clic en **Save**.
 
----
+
 
 ### 5.5 Deploy
 
@@ -273,7 +278,7 @@ Haz clic en **Save**.
 > `https://xxxxxxxxxx.execute-api.us-east-1.amazonaws.com/prod`  
 > ⚠️ Guarda esta URL — es el punto de entrada al asistente desde el frontend.
 
----
+
 
 ## 🎉 ¡Felicidades!
 

@@ -10,11 +10,13 @@ import * as subscriptions from '../src/graphql/subscriptions';
 import { listUltimos5Anuncios } from '../src/graphql/queries';
 import type { GraphQLSubscription, GraphQLQuery } from '@aws-amplify/api';
 import type { OnCreateAnunciosSubscription, Anuncios, AnunciosConnection } from '../src/API';
-import '../public/styles/admin.css';
+import '../public/styles/index.css';
 import { useRouter } from 'next/navigation';
 import ThemeToggle from '../src/app/context/ThemeToggle';
 import Head from 'next/head';
 import dynamic from 'next/dynamic';
+import rehypeRaw from 'rehype-raw';
+
 const MorrisNews = dynamic(() => import('../components/MorrisNews'), { ssr: false });
 const AgentWidget = dynamic(() => import('../components/chat/AgentWidget'), { ssr: false });
 
@@ -938,13 +940,29 @@ const getDisplayName = () => {
                     <div style={{ width: '90%', textAlign: 'justify', fontSize: 17, marginLeft: 'auto', marginRight: 'auto', overflow: 'hidden' }}>
                       <ReactMarkdown
                         remarkPlugins={[remarkGfm]}
+                        rehypePlugins={[rehypeRaw]}
                         components={{
                           pre: CodeBlock,
-                          a: ({ node, ...props }) => (
-                            <a {...props} target="_blank" rel="noopener noreferrer" style={{ color: 'var(--primary-color)', textDecoration: 'underline' }}>
+                          a: ({ node, href, ...props }) => {
+                            if (href?.startsWith('#')) {
+                              return (
+                                <a
+                                  {...props}
+                                  href={href}
+                                  style={{ color: 'var(--primary-color)', textDecoration: 'underline' }}
+                                  onClick={(e) => {
+                                    e.preventDefault();
+                                    document.getElementById(href.slice(1))?.scrollIntoView({ behavior: 'smooth' });
+                                  }}
+                                />
+                              );
+                            }
+                            return (
+                              <a {...props} href={href} target="_blank" rel="noopener noreferrer" style={{ color: 'var(--primary-color)', textDecoration: 'underline' }}>
                               {props.children}
-                            </a>
-                          ),
+                              </a>
+                            );
+                          },
                           img: ({ node, ...props }) => (
                             <img
                               {...props}

@@ -4,7 +4,7 @@ import { signOut, fetchUserAttributes } from 'aws-amplify/auth';
 import { useRouter } from 'next/navigation';
 import { generateClient } from 'aws-amplify/api';
 import { createAnuncios } from '../src/graphql/mutations';
-import '../public/styles/admin.css';
+import '../public/styles/index.css';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import ThemeToggle from '../src/app/context/ThemeToggle'; // Nuevo import
