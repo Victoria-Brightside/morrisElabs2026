@@ -1,0 +1,34 @@
+{
+  "version": "53.0.0",
+  "files": {
+    "83038ee9b1857c112799fd2f1fd3fd52786956a092a790431b39df420dc4bd3b": {
+      "displayName": "auth Nested Stack Template",
+      "source": {
+        "path": "amplifyeducatelabsseiersandboxfabd8c1bb4auth7554BD8C.nested.template.json",
+        "packaging": "file"
+      },
+      "destinations": {
+        "current_account-current_region-c83d0af5": {
+          "bucketName": "cdk-hnb659fds-assets-${AWS::AccountId}-${AWS::Region}",
+          "objectKey": "83038ee9b1857c112799fd2f1fd3fd52786956a092a790431b39df420dc4bd3b.json",
+          "assumeRoleArn": "arn:${AWS::Partition}:iam::${AWS::AccountId}:role/cdk-hnb659fds-file-publishing-role-${AWS::AccountId}-${AWS::Region}"
+        }
+      }
+    },
+    "c4878e1ecfe9966c12fdb55715f1025541c9771b0bfc71e8fa4ee9a5c28703d3": {
+      "displayName": "amplify-educatelabs-seier-sandbox-fabd8c1bb4 Template",
+      "source": {
+        "path": "amplify-educatelabs-seier-sandbox-fabd8c1bb4.template.json",
+        "packaging": "file"
+      },
+      "destinations": {
+        "current_account-current_region-7f236e07": {
+          "bucketName": "cdk-hnb659fds-assets-${AWS::AccountId}-${AWS::Region}",
+          "objectKey": "c4878e1ecfe9966c12fdb55715f1025541c9771b0bfc71e8fa4ee9a5c28703d3.json",
+          "assumeRoleArn": "arn:${AWS::Partition}:iam::${AWS::AccountId}:role/cdk-hnb659fds-file-publishing-role-${AWS::AccountId}-${AWS::Region}"
+        }
+      }
+    }
+  },
+  "dockerImages": {}
+}

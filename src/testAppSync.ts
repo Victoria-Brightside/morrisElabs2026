@@ -1,14 +1,14 @@
 import { Amplify } from 'aws-amplify';
-import awsconfig from './aws-exports';
+import outputs from '../amplify_outputs.json';
 import { generateClient } from 'aws-amplify/api';
 import { createAnuncios } from './graphql/mutations';
 
-Amplify.configure(awsconfig);
+Amplify.configure(outputs);
 
 const client = generateClient();
 
 // Log para verificar la configuración de AWS
-console.log("awsconfig:", awsconfig);
+console.log("outputs:", outputs);
 
 // Log para verificar la mutación
 console.log("Mutación createAnuncios:", JSON.stringify(createAnuncios, null, 2));

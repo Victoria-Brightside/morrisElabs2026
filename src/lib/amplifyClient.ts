@@ -2,7 +2,7 @@
 import { Amplify } from 'aws-amplify';
 import { generateClient } from 'aws-amplify/api';
 import type { GraphQLResult, GraphQLQuery } from '@aws-amplify/api';
-import awsconfig from '../aws-exports';
+import outputs from '../../amplify_outputs.json';
 
 // Tipo simplificado para el cliente
 type SafeAmplifyClient = {
@@ -15,7 +15,7 @@ let client: SafeAmplifyClient | null = null;
 export async function configureAmplify(): Promise<SafeAmplifyClient> {
   if (!isConfigured) {
     try {
-      const config = { ...awsconfig };
+      const config = { ...outputs };
       delete (config as any).ssr; // Elimina propiedad no estándar
       
       Amplify.configure(config);

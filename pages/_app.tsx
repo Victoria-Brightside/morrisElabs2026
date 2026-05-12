@@ -3,7 +3,7 @@ import { Amplify } from 'aws-amplify';
 import type { AppProps } from 'next/app';
 import Head from 'next/head';
 import { ThemeProvider } from '../src/app/context/ThemeProvider';
-import awsExports from '../src/aws-exports';
+import outputs from '../amplify_outputs.json';
 import { fetchAuthSession, fetchUserAttributes } from 'aws-amplify/auth';
 import { useEffect, useMemo, useState } from 'react';
 import { useRouter } from 'next/router';
@@ -12,9 +12,7 @@ import { useRouter } from 'next/router';
 import '../public/styles/index.css';
 
 // Mezcla aws-exports con env vars para AppSync y normaliza el endpoint
-const rawEndpoint =
-  (awsExports as any).aws_appsync_graphqlEndpoint ||
-  process.env.NEXT_PUBLIC_APPSYNC_ENDPOINT;
+const rawEndpoint = process.env.NEXT_PUBLIC_APPSYNC_ENDPOINT;
 
 const normalizeEndpoint = (url?: string) => {
   if (!url || typeof url !== 'string') return url;
@@ -27,12 +25,9 @@ const normalizeEndpoint = (url?: string) => {
 
 const appSyncConfig = {
   aws_appsync_graphqlEndpoint: normalizeEndpoint(rawEndpoint),
-  aws_appsync_region:
-    (awsExports as any).aws_appsync_region || process.env.NEXT_PUBLIC_AWS_REGION,
-  aws_appsync_authenticationType:
-    (awsExports as any).aws_appsync_authenticationType || 'API_KEY',
-  aws_appsync_apiKey:
-    (awsExports as any).aws_appsync_apiKey || process.env.NEXT_PUBLIC_APPSYNC_API_KEY,
+  aws_appsync_region: process.env.NEXT_PUBLIC_AWS_REGION,
+  aws_appsync_authenticationType: 'API_KEY',
+  aws_appsync_apiKey: process.env.NEXT_PUBLIC_APPSYNC_API_KEY,
 };
 
 // (Opcional) log 1 vez para verificar el endpoint en dev
@@ -41,9 +36,15 @@ if (typeof window !== 'undefined' && !(window as any).__AMPLIFY_CFG_LOGGED__) {
   (window as any).__AMPLIFY_CFG_LOGGED__ = true;
 }
 
-Amplify.configure({
-  ...awsExports,
-  ...appSyncConfig,
+Amplify.configure(outputs, {
+  API: {
+    GraphQL: {
+      endpoint: normalizeEndpoint(rawEndpoint) || '',
+      region: process.env.NEXT_PUBLIC_AWS_REGION || 'us-east-1',
+      defaultAuthMode: 'apiKey',
+      apiKey: process.env.NEXT_PUBLIC_APPSYNC_API_KEY,
+    }
+  }
 });
 
 

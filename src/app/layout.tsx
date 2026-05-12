@@ -1,6 +1,6 @@
 // src/app/layout.tsx
 import { Amplify } from 'aws-amplify';
-import awsconfig from "../aws-exports";
+import outputs from "../../amplify_outputs.json";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from './context/ThemeProvider'; // Nuevo import
@@ -21,7 +21,7 @@ export const metadata = {
 };
 
 // Configura AWS Amplify
-Amplify.configure(awsconfig);
+Amplify.configure(outputs);
 
 export default function RootLayout({
   children,
