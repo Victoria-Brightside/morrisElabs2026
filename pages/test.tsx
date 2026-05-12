@@ -3,7 +3,7 @@ import React, { useState, useEffect } from 'react';
 import { generateClient } from 'aws-amplify/api';
 import { Amplify } from 'aws-amplify';
 import { useRouter } from 'next/router';
-import '../public/styles/admin.css';
+import '../public/styles/index.css';
 
 const TestPage = () => {
   const [connectionStatus, setConnectionStatus] = useState('Probando conexión...');

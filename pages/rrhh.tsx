@@ -2,7 +2,7 @@
 
 import React, { useState, useEffect, useRef, useCallback } from 'react';
 import { signOut, fetchUserAttributes, fetchAuthSession } from 'aws-amplify/auth';
-import '../public/styles/admin.css';
+import '../public/styles/index.css';
 import '../components/rrhh.css';
 import { useRouter } from 'next/navigation';
 import ThemeToggle from '../src/app/context/ThemeToggle';
