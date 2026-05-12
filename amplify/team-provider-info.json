@@ -1,19 +1,24 @@
 {
   "main": {
     "awscloudformation": {
-      "AuthRoleName": "amplify-stibaquiraelabs2025r-main-22dfd-authRole",
-      "UnauthRoleArn": "arn:aws:iam::147997125454:role/amplify-stibaquiraelabs2025r-main-22dfd-unauthRole",
-      "AuthRoleArn": "arn:aws:iam::147997125454:role/amplify-stibaquiraelabs2025r-main-22dfd-authRole",
+      "AuthRoleName": "amplify-morriselabs2026-main-b7d96-authRole",
+      "UnauthRoleArn": "arn:aws:iam::147997125454:role/amplify-morriselabs2026-main-b7d96-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::147997125454:role/amplify-morriselabs2026-main-b7d96-authRole",
       "Region": "us-east-1",
-      "DeploymentBucketName": "amplify-stibaquiraelabs2025r-main-22dfd-deployment",
-      "UnauthRoleName": "amplify-stibaquiraelabs2025r-main-22dfd-unauthRole",
-      "StackName": "amplify-stibaquiraelabs2025r-main-22dfd",
-      "StackId": "arn:aws:cloudformation:us-east-1:147997125454:stack/amplify-stibaquiraelabs2025r-main-22dfd/c10dc500-7013-11f0-bb08-0affe7365411",
+      "DeploymentBucketName": "amplify-morriselabs2026-main-b7d96-deployment",
+      "UnauthRoleName": "amplify-morriselabs2026-main-b7d96-unauthRole",
+      "StackName": "amplify-morriselabs2026-main-b7d96",
+      "StackId": "arn:aws:cloudformation:us-east-1:147997125454:stack/amplify-morriselabs2026-main-b7d96/1e6ab060-49b6-11f1-a01c-0afff28aec25",
       "AmplifyAppId": "df6an8psxzvvy"
     },
     "categories": {
       "auth": {
-        "educatelabs673e18d9": {}
+        "educatelabs673e18d9": {
+          "userPoolId": "us-east-1_WOSAx5MKG",
+          "userPoolName": "educatelabs673e18d9_userpool_673e18d9-main",
+          "webClientId": "36jr7cgten8o9gu8vpvh1uubkc",
+          "identityPoolId": "us-east-1:c4a10e9f-041e-4b62-9b28-06e9d8856582"
+        }
       }
     }
   }
