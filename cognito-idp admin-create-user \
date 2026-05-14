@@ -1,0 +1,39 @@
+{
+    "UserPools": [
+        {
+            "Id": "us-east-1_286IFgoGt",
+            "Name": "educatelabs673e18d9_userpool_673e18d9-dev",
+            "LambdaConfig": {},
+            "LastModifiedDate": "2025-03-31T17:10:29.180000-06:00",
+            "CreationDate": "2025-03-31T17:10:29.180000-06:00"
+        },
+        {
+            "Id": "us-east-1_BAbkNxGkC",
+            "Name": "amplifyAuthUserPool4BA7F805-mjc5o4zJA3h5",
+            "LambdaConfig": {},
+            "LastModifiedDate": "2026-05-12T22:56:56.179000-06:00",
+            "CreationDate": "2026-05-12T22:56:56.179000-06:00"
+        },
+        {
+            "Id": "us-east-1_WOSAx5MKG",
+            "Name": "educatelabs673e18d9_userpool_673e18d9-main",
+            "LambdaConfig": {},
+            "LastModifiedDate": "2026-05-06T20:00:46.538000-06:00",
+            "CreationDate": "2025-08-02T21:18:11.021000-06:00"
+        },
+        {
+            "Id": "us-east-1_mTnLGIDzu",
+            "Name": "morriselabs2026f055c52a_userpool_f055c52a-main",
+            "LambdaConfig": {},
+            "LastModifiedDate": "2026-05-12T12:26:39.796000-06:00",
+            "CreationDate": "2026-05-12T12:26:39.796000-06:00"
+        },
+        {
+            "Id": "us-east-1_yCbjspyKw",
+            "Name": "amplifyAuthUserPool4BA7F805-QLmbnVjMyxoQ",
+            "LambdaConfig": {},
+            "LastModifiedDate": "2026-05-12T21:59:07.185000-06:00",
+            "CreationDate": "2026-05-12T21:59:07.185000-06:00"
+        }
+    ]
+}
